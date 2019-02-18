@@ -25,6 +25,11 @@ Route::prefix('admin')->group(function(){
 		
 		Route::get('/','UserController@daftar')->name('admin.user')->middleware('akses.admin');
 
+		Route::get('/edit/{id}','UserController@edit')->name('admin.user.edit')
+		->middleware('akses.admin');
+		Route::post('/edit/{id}','UserController@update')
+		->middleware('akses.admin');
+
 		Route::get('/add','UserController@add')->name('admin.user.add')->middleware('akses.admin');
 		Route::post('/add','UserController@save')->middleware('akses.admin');
 
